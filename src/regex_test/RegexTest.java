@@ -108,6 +108,9 @@ public class RegexTest {
 
             }
 
+            reader.close();
+            fileReader.close();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
