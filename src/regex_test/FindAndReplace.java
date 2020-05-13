@@ -18,14 +18,18 @@ public class FindAndReplace {
 
         String regex28 = "[0-9]{3}\\.[0-9]{3}\\.([0-9]{4})"; // '\.' represents '.' we use '\\.' for Java
 
+        String regex29 = "([a-zA-Z]{3})\\s([0-9]{1,2})[a-z]{2}\\s[0-9]{2}([0-9]{2})";
+
+        String regex30 = "\\(([0-9]{3})\\)\\.([0-9]{3}\\.[0-9]{4})";
+
         // Creating a Regex Pattern
         // Pattern objName = Pattern.compile(regexPatternHere);
-        Pattern rPattern = Pattern.compile(regex28);
+        Pattern rPattern = Pattern.compile(regex30);
 
 
         try{
 
-            File txtFile = new File(dirPath + "regex28.txt");
+            File txtFile = new File(dirPath + "regex30.txt");
             FileReader fileReader = new FileReader(txtFile);
             BufferedReader reader = new BufferedReader(fileReader);
 
@@ -40,7 +44,7 @@ public class FindAndReplace {
                 if(match.find()) {
 
                     // match.replaceAll() methods helps us to replace the text before printing and match.group(n) takes the group i.e '()s'
-                    line = match.replaceAll("xxx.xxx." + match.group(1));
+                    line = match.replaceAll(match.group(1) + "." + match.group(2));
                     System.out.println(line);
                 }
 
